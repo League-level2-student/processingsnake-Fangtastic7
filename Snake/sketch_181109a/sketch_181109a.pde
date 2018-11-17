@@ -227,6 +227,7 @@ void manageTail() {
     segments.remove(0);
   }
   
+  
     
   
     
@@ -237,8 +238,9 @@ void manageTail() {
 void drawTail() {
     // Draw a 10 by 10 rectangle for each Segment in your snake ArrayList.
     fill(0,255,0);
-    
-    rect(head.x,head.y, 10, 10);
+    for(Segment counter : segments){
+    rect(counter.x, counter.y, 10, 10);
+    }
 }
 
 
@@ -248,9 +250,10 @@ void checkTailCollision() {
 
   // If your head has the same location as one of your segments...
  for(int i=1; i<segments.size();i++){
-   if(segments.get(0)==segments.get(i)){
-     
+   if(head.x==segments.get(i).x){
+     if(head.y==segments.get(i).y){
    pieceseaten =1;
+     }
  }
  }
   // reset your food variable
